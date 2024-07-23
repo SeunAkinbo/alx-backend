@@ -39,7 +39,7 @@ class Server:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
                 dataset = [row for row in reader]
-            self.__dataset = dataset[1:]  # Exclude header row
+            self.__dataset = dataset[1:]
 
         return self.__dataset
 
@@ -51,13 +51,13 @@ class Server:
         :param page_size: integer, number of items per page
         :return: list of rows from the dataset
         """
-        assert isinstance(page, int) and page > 0,
-        assert isinstance(page_size, int) and page_size > 0,
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
 
-        if start_index >= len(dataset):
+        if start_index > len(dataset):
             return []
 
         return dataset[start_index:end_index]
