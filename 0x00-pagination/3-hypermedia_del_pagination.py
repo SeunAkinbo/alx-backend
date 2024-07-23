@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Module - 3-hypermedia_del_pagination.py(Deletion Resillient)"""
-
+"""Deletion-resilient hypermedia pagination
+"""
 import csv
 import math
 from typing import List, Dict, Any
@@ -12,6 +12,9 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """
+        Initializes Server class
+        """
         self.__dataset = None
         self.__indexed_dataset = None
 
@@ -37,7 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None,
-                        page_size: int = 10) -> Dict[str, Any]:
+                        page_size: int = 10) -> Dict:
         """
         Returns a dictionary containing pagination metadata, which ensures
         that if rows are removed from the dataset, the user does not miss
