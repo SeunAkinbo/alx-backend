@@ -2,6 +2,7 @@
 """Module - 4-mru_cache.py"""
 
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class MRUCache(BaseCaching):
@@ -11,7 +12,7 @@ class MRUCache(BaseCaching):
     def __init__(self):
         """ Initialize the cache """
         super().__init__()
-        self.access_order = []
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """ Add an item in the cache """
@@ -19,13 +20,11 @@ class MRUCache(BaseCaching):
             return
 
         if key in self.cache_data:
-            self.access_order.remove(key)
+            self.cache_data.move_to_end(key)
         self.cache_data[key] = item
-        self.access_order.append(key)
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            mru_key = self.access_order.pop()
-            del self.cache_data[mru_key]
+            mru_key, _ = self.cache_data.popitem(last=True)
             print(f"DISCARD: {mru_key}")
 
     def get(self, key):
@@ -33,6 +32,5 @@ class MRUCache(BaseCaching):
         if key is None or key not in self.cache_data:
             return None
 
-        self.access_order.remove(key)
-        self.access_order.append(key)
+        self.cache_data.move_to_end(key)
         return self.cache_data[key]
