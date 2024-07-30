@@ -9,8 +9,15 @@ msgstr "Welcome to Holberton"
 msgid "home_header"
 msgstr "Hello world!"
 
+msgid "logged_in_as"
+msgstr "You are logged in as %(username)s."
+
+msgid "not_logged_in"
+msgstr "You are not logged in."
+
 msgid ""
 msgstr ""
+
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-07-30 22:47+0100\n"
