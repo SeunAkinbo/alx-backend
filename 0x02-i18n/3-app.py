@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Module - 0-app.py"""
+"""Module - 3-app.py"""
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
@@ -27,7 +27,7 @@ def index():
     """The Index"""
     title = _("home_title")
     header = _("home_header")
-    return render_template('2-index.html', title=title, header=header)
+    return render_template('3-index.html', title=title, header=header)
 
 
 if __name__ == '__main__':
