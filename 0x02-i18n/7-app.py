@@ -58,7 +58,7 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def index():
     """The Index"""
-    return render_template('6-index.html')
+    return render_template('7-index.html')
 
 
 @babel.timezoneselector
